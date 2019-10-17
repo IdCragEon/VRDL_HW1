@@ -41,12 +41,9 @@ def load_image():
 
 x_test, file_name = load_image()
 
-print(x_test.shape)
 x_test = x_test.reshape(x_test.shape[0], PICTURE_SIZE, PICTURE_SIZE, 1)
 x_test = x_test.astype('float32')
 x_test /= 255
-
-print(x_test.shape)
 
 from keras.models import load_model
 from keras.models import Sequential
@@ -60,5 +57,4 @@ with open('prediction.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['id', 'label'])
     for i in range(len(prediction)):
-        print([file_name[i],flag[prediction[i]]])
         writer.writerow([file_name[i],flag[prediction[i]]])
