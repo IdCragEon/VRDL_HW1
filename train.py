@@ -56,8 +56,6 @@ def load_image():
 
 x_train = x_train.reshape(x_train.shape[0], PICTURE_SIZE, PICTURE_SIZE, 1)
 x_test = x_test.reshape(x_test.shape[0], PICTURE_SIZE, PICTURE_SIZE, 1)
-#x_train = x_train.reshape(x_train.shape[0], 256*256)
-#x_test = x_test.reshape(x_test.shape[0], 256*256)
 x_train = x_train.astype('float32')
 x_test = x_test.astype('float32')
 x_train /= 255
