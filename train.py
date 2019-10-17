@@ -67,12 +67,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Conv2D, MaxPooling2D, ZeroPadding2D, LeakyReLU
 from keras import optimizers
-'''
-import tensorflow as tf
-gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.8)
-sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
-tf.keras.backend.set_session(sess)
-'''
+
 input_shape = (PICTURE_SIZE,PICTURE_SIZE,1)
 
 model = Sequential([
@@ -95,14 +90,7 @@ model = Sequential([
     Dropout(rate=0.25),
     Dense(13, activation='softmax')
 ])
-'''
-model = Sequential()
-model.add(Dense(512, activation='relu',input_shape=(256*256,)))
-model.add(Dense(512, activation='relu'))
-model.add(Dense(64, activation='relu'))
-model.add(Dropout(rate=0.25))
-model.add(Dense(13, activation='softmax'))
-'''
+
 model.compile(loss='categorical_crossentropy',
               optimizer=optimizers.Adam(lr=0.00005),
               metrics=['accuracy'])
